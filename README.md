@@ -7,3 +7,4 @@ The way it works is that it uses the Per-Process Reclaim driver to reclaim memor
 - Have at least 1 GB of ZRAM or Swapfile, or both. Larger than 1GB is preferred.
 - Have LMKD, please do not use this module if you have LMK or Simple LMK, it is only compatible with LMKD.
 - Errors may occur in certain versions of Android, after all, this module that I created I am only testing on Android 15 in the Lineage OS ROM, so older and later versions need testing.
+- It can only be used for devices that have PPR (Per-Process Reclaim) commonly found in Snapdragon devices, maybe it can be found in others, it is not known.
