@@ -1,5 +1,5 @@
 # PRLMK-Addon
-A custom low memory killer code injector for LMKD devices that specializes in reclaiming memory and prioritizes killing as few as possible, based on the project: https://github.com/darkhz/prlmk/tree/README. Suitable mainly for devices with 4 GB of RAM or less, but devices with more memory can also benefit, even if only slightly.
+A custom low memory killer code injector for LMKD devices that specializes in reclaiming memory and prioritizes killing as few as possible, based on the project [prlmk](https://github.com/darkhz/prlmk/tree/README). Suitable mainly for devices with 4 GB of RAM or less, but devices with more memory can also benefit, even if only slightly.
 
 The way it works is that it uses the Per-Process Reclaim driver to reclaim memory, having two thresholds: swap free and free file limit. If the swap free reaches a critical limit, processes with lower CPU usage are killed (using stime+utime for this) to satisfy the memory demands, continuing to kill these processes until the swap free threshold is met and is higher. If it exceeds the free file limit, the process that consumes the most memory with adj score of 701> is killed to satisfy the extreme usage.
 
