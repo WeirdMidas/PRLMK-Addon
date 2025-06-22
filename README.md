@@ -6,6 +6,11 @@ A custom low memory killer code injector for LMKD devices that specializes in re
 
 The way it works is that it uses the Per-Process Reclaim driver to reclaim memory, having two thresholds: swap free and free file limit. If the swap free reaches a critical limit, processes with lower CPU usage are killed (using stime+utime for this) to satisfy the memory demands, continuing to kill these processes until the swap free threshold is met and is higher. If it exceeds the free file limit, the process that consumes the most memory with adj score of 701> is killed to satisfy the extreme usage.
 
+### How it works
+If swapfree is below 40mb, prlmk kills processes with lower CPU time until the amount of swap is greater than the threshold.
+
+If active(file) is below 140mb, a critical situation is triggered, killing processes with adj 701> and with greater memory usage, where it stops if active(file) is above 140mb, signaling that the critical pressure has gone.
+
 ### Requirements
 - Have at least 1 GB of ZRAM or Swapfile, or both. Larger than 1GB is preferred.
 - Have LMKD, please do not use this module if you have LMK or Simple LMK, it is only compatible with LMKD.
