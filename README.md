@@ -11,6 +11,8 @@ If swapfree is below 40mb, prlmk kills processes with lower CPU time until the a
 
 If active(file) is below 140mb, a critical situation is triggered, killing processes with adj 701> and with greater memory usage, where it stops if active(file) is above 140mb, signaling that the critical pressure has gone.
 
+The prlmk time window is 1000ms (1s) and is customizable via the custom prop for our prlmk: "ro.prlmk.window_size_ms".
+
 ### Requirements
 - Have at least 1 GB of ZRAM or Swapfile, or both. Larger than 1GB is preferred.
 - Have LMKD, please do not use this module if you have LMK or Simple LMK, it is only compatible with LMKD.
